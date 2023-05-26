@@ -1,12 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Board from './components/board';
+import './app.css'
 
 function App() {
-  return (
-    <div className="App">
-          Board Game
-    </div>
-  );
+    return (
+        <div className='app d-flex justify-content-center align-items-center'>
+           <Board />
+        </div>
+    )
 }
 
-export default App;
+export default React.memo(App);
