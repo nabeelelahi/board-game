@@ -1,12 +1,28 @@
 import React from 'react'
-import Board from './components/board';
-import './app.css'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Game from './pages/game';
+import Score from './pages/scores';
+import './App.css'
 
 function App() {
     return (
-        <div className='app d-flex justify-content-center align-items-center'>
-           <Board />
-        </div>
+        <BrowserRouter>
+            <Routes>
+                {/* common */}
+                <Route
+                    exact
+                    path="/"
+                    name="Game"
+                    element={<Game />}
+                />
+                <Route
+                    exact
+                    path="/game"
+                    name="Game"
+                    element={<Score />}
+                />
+            </Routes>
+        </BrowserRouter>
     )
 }
 
