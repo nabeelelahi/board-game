@@ -16,17 +16,19 @@ const main = App()
 
 // checking for connection
 
-if (client.isConnected()) {
-  execute();
-}
-else {
-  client.connect().then(function () {
-    execute();
-  });
-}
+// if (client.isConnected()) {
+//   execute();
+// }
+// else {
+//   client.connect().then(function () {
+//     execute();
+//   });
+// }
 
 function execute() {
 
   main.use(scores)
 
 }
+
+execute()

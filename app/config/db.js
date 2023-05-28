@@ -7,7 +7,7 @@ const connectionConfig = {
   useUnifiedTopology: true,
 };
 
-const client = new MongoClient(connectionString, connectionConfig);
+// const client = new MongoClient(connectionString, connectionConfig);
 const connection = mongoose.createConnection(connectionString);
 
-module.exports = { client, ObjectID, connection }
+module.exports = { ObjectID, connection }

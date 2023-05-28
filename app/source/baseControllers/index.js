@@ -1,28 +1,18 @@
 
 
 async function getDocs(model, condition = {}) {
-    try {
-        const result = model.find(condition)
-        if (result) {
-            return !result.length ? [] : result
-        }
-        else {
-            return []
-        }
+    const result = await model.find(condition)
+    if (result) {
+        return !result.length ? [] : result
     }
-    catch (err) {
-        return err
+    else {
+        return []
     }
 }
 
 async function insertDoc(model, payload = {}) {
-    try {
-        const result = await model.create(payload)
-        return result.toJSON()
-    }
-    catch (err) {
-        return err
-    }
+    const result = await model.create(payload)
+    return result.toJSON()
 }
 
 function sendResponse(res, code = 200, message = "success", data = {}) {

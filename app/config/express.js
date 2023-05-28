@@ -1,10 +1,6 @@
 const express = require('express')
 var cors = require('cors')
 const { BASE_URL } = require('../config/constants')
-const appRoot = `${__dirname
-  .replace(/[\\]/gim, '/')
-  .replace('/backend/app/config', '/backend')}`
-const dirRoot = `${__dirname.replace(/[\\]/gim, '/').replace('/config', '')}`
 
 module.exports = {
   router: express.Router(),
@@ -13,19 +9,15 @@ module.exports = {
 
     const app = express();
 
-    const path = require("path");
-
     const PORT = process.env.PORT || 7000;
 
+    app.use(express.raw());
+   
     app.use(express.json());
 
     app.use(express.urlencoded({ extended: true }));
 
-    app.use(
-      BASE_URL + `public/uploads/`,
-      express.static(path.join(__dirname, "public/uploads"))
-    );
-    app.use(cors())
+    app.use(cors());
 
     app.listen(
       PORT, () => {
@@ -33,8 +25,6 @@ module.exports = {
 
       }
     );
-
-    // endpoint to test if servier is working or not
 
     app.get(`${BASE_URL}check`, (req, res) => {
 
