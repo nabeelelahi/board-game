@@ -1,5 +1,4 @@
 import { useState } from "react";
-import _ from 'lodash';
 
 // this hook performs all the functionalities of the timer
 const useTimer = () => {

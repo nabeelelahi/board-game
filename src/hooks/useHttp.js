@@ -1,6 +1,5 @@
 import constants from '../constants'
 import { useEffect, useState } from "react";
-import _ from 'lodash';
 
 // this hook performs the api calls
 const useHttp = (url, type = 'mount') => {
@@ -35,7 +34,7 @@ const useHttp = (url, type = 'mount') => {
     }
 
     useEffect(() => {
-        if (type == 'mount') {
+        if (type === 'mount') {
             makeRequest()
         }
     }, [])
