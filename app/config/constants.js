@@ -1,5 +1,6 @@
 module.exports = {
+    // api base url.
     BASE_URL: `/api/`,
-    PROD_BASEURL: '',
+    // database connection string
     connectionString: "mongodb://localhost:27017/board_game",
 }

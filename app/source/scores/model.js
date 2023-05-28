@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { connection } = require('../../config/db');
 
+// mongoose schema for score model 
 const schema = new mongoose.Schema({
     name: {
         type: String,

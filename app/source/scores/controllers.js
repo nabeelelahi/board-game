@@ -1,7 +1,9 @@
 const baseController = require('../baseControllers')
 
+// mongoose model for this controller
 const model = require('./model')
 
+// get scores controller
 const get = async (req, res) => {
     try {
         const data = await baseController.getDocs(model, req.query)
@@ -11,6 +13,7 @@ const get = async (req, res) => {
     }
 }
 
+// create scores controller
 const create = async (req, res) => {
     try {
         const data = await baseController.insertDoc(model, req.body)
