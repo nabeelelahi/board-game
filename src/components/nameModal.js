@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Modal, Input, notification, Button } from 'antd';
 
 // This modal ask for the name of players before game begins
 function NameModal({ isModalOpen, setIsModalOpen, setName, name, createCounter }) {
 
+    // getting reference of input to avoid re-renders
+    const inputRef = useRef()
+
     // on submission of name
     function handleOk() {
-        if (name.length) {
+        let inputValue = inputRef.current.input.value;
+        if (inputValue.length) {
+            setName(inputValue)
             setIsModalOpen(false)
             createCounter()
         }
@@ -32,7 +37,7 @@ function NameModal({ isModalOpen, setIsModalOpen, setName, name, createCounter }
                 </Button>,
             ]}
         >
-            <Input onChange={(e) => setName(e.target.value)} />
+            <Input ref={inputRef} />
         </Modal>
     );
 };

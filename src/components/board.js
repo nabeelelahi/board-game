@@ -32,14 +32,17 @@ function Board() {
                     cells.map((data, index) => <Cell key={data.number} {...{ data, index, activeCell }} />)
                 }
             </div>
-                {/* modal which ask for players name */}
-            <NameModal
-                name={name}
-                setName={setName}
-                setIsModalOpen={setIsModalOpen}
-                isModalOpen={isModalOpen}
-                createCounter={createCounter}
-            />
+            {/* modal which ask for players name */}
+            {
+                isModalOpen &&
+                <NameModal
+                    name={name}
+                    setName={setName}
+                    setIsModalOpen={setIsModalOpen}
+                    isModalOpen={isModalOpen}
+                    createCounter={createCounter}
+                />
+            }
         </div>
     )
 }
