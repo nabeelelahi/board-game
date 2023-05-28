@@ -17,3 +17,11 @@ export const showPopModal = (
         callBack,
     });
 };
+
+export const jsonToForm = (obj = {}) => {
+    let form = new FormData();
+    Object.entries(obj).map(([key, value]) => {
+        form.append(key, value)
+    })
+    return obj
+}

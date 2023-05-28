@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Game from './pages/game';
-import Score from './pages/scores';
+import ScoreBoard from './pages/scoreBoard';
 import './App.css'
 
 function App() {
@@ -17,9 +17,9 @@ function App() {
                 />
                 <Route
                     exact
-                    path="/game"
-                    name="Game"
-                    element={<Score />}
+                    path="/score-board"
+                    name="ScoreBoard"
+                    element={<ScoreBoard />}
                 />
             </Routes>
         </BrowserRouter>

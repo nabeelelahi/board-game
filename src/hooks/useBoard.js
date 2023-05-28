@@ -2,14 +2,18 @@ import { useEffect, useState } from 'react'
 import _ from 'lodash';
 import { showPopModal } from '../helpers';
 import useHttp from './useHttp';
+import useTimer from './useTimer';
 
 function useBoard() {
 
     const [cells, setCells] = useState([])
     const [activeCell, setActiveCells] = useState(0)
     const [score, setScore] = useState(0)
-    const length = 20 * 20;
+    const [name, setName] = useState({})
+    const [isModalOpen, setIsModalOpen] = useState({})
+    const length = 5 * 5;
     const { makeRequest } = useHttp('scores', 'form');
+    const { timeTaken, createCounter, counter, clearTimeInterval } = useTimer();
 
     function createBoard() {
         clearStates()
@@ -57,6 +61,7 @@ function useBoard() {
                     createBoard()
                     let message = 'You have lost the game. Because you ran into an enemy.';
                     showPopModal('error', 'You Lost', message)
+                    clearTimeInterval()
                 }
                 else if (p.type === 'item') {
                     setScore(p => ++p)
@@ -91,7 +96,12 @@ function useBoard() {
             if (_.isEmpty(cellExists)) {
                 let message = 'You have won the game. You have collected all Items';
                 showPopModal('success', 'You Won', message)
-                makeRequest()
+                clearTimeInterval()
+                if (score > 0) {
+                    let payload = { name, score, time_taken: timeTaken }
+                    makeRequest('POST', payload)
+                }
+
             }
         }
     }
@@ -116,7 +126,13 @@ function useBoard() {
     return {
         cells: _.cloneDeep(cells),
         score: _.cloneDeep(score),
-        activeCell: _.cloneDeep(activeCell)
+        activeCell: _.cloneDeep(activeCell),
+        isModalOpen: _.cloneDeep(isModalOpen),
+        setIsModalOpen: setIsModalOpen,
+        name: _.cloneDeep(name),
+        setName: setName,
+        counter,
+        createCounter
     }
 }
 

@@ -7,9 +7,13 @@
     width: 80vh;
 }
 
+#score-board{
+    height: 80vh;
+}
+
 #cell{
-    height: 5%;
-    width: 5%;
+    height: 20%;
+    width: 20%;
 }
 
 #cell img{
