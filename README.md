@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Board Game Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution application of the task given by atom point. Board game consist of a game of 20x20 board of cells with enemies and items spawn over it and the user has to collect all items avoiding the enemies in order to win the game. This react app consists of the UI and the functionality regarding the game using custom hooks and funtional components.
 
 ## Available Scripts
 

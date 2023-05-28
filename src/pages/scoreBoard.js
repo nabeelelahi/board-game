@@ -3,10 +3,13 @@ import { Table } from 'antd';
 import Header from '../components/header';
 import useHttp from '../hooks/useHttp';
 
+// Score Page
 function ScoreBoard() {
 
+    // descructuring of state after api call.
     const { state } = useHttp('scores')
 
+    // columns for the table component
     const columns = [
         {
             title: 'Name',

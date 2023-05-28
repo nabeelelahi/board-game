@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Board from '../components/board'
 import Header from '../components/header'
 
+// Game Page
 function Game() {
 
     return (

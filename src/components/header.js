@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function header() {
+// Header Component
+function Header() {
     return (
         <nav class="navbar navbar-primary bg-primary">
             <Link class="navbar-brand" to="/">
@@ -14,4 +15,4 @@ function header() {
     )
 }
 
-export default header
+export default React.memo(Header)

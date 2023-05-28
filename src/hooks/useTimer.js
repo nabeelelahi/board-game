@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
-import moment from 'moment';
+import { useState } from "react";
 import _ from 'lodash';
 
+// this hook performs all the functionalities of the timer
 const useTimer = () => {
     const [timeTaken, setTimeTaken] = useState(0)
     const [counter, setCounter] = useState('00:00:00')
     const [timeInteval, setTimeInterval] = useState('00:00:00')
 
+    // this function creates the time counter
     const createCounter = () => {
         let interval = 1000;
         let seconds = 0;
@@ -30,6 +31,7 @@ const useTimer = () => {
         }, interval))
     }
 
+    // this function clears the timeInterval and clears of states
     function clearTimeInterval(){
         clearInterval(timeInteval)
         setCounter('00:00:00')

@@ -1,5 +1,6 @@
 import React from 'react'
 
+// this components renders the cells on the board component
 function Cell(props) {
     const { data, index, activeCell } = props;
     return (

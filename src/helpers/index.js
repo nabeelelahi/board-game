@@ -1,5 +1,6 @@
 import { Modal } from "antd";
 
+// this method renders alert modal
 export const showPopModal = (
     type = 'success',
     message = "Success",
@@ -17,11 +18,3 @@ export const showPopModal = (
         callBack,
     });
 };
-
-export const jsonToForm = (obj = {}) => {
-    let form = new FormData();
-    Object.entries(obj).map(([key, value]) => {
-        form.append(key, value)
-    })
-    return obj
-}

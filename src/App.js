@@ -8,7 +8,6 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                {/* common */}
                 <Route
                     exact
                     path="/"

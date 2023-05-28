@@ -1,8 +1,10 @@
 import React from 'react'
 import { Modal, Input, notification, Button } from 'antd';
 
+// This modal ask for the name of players before game begins
 function NameModal({ isModalOpen, setIsModalOpen, setName, name, createCounter }) {
 
+    // on submission of name
     function handleOk() {
         if (name.length) {
             setIsModalOpen(false)
